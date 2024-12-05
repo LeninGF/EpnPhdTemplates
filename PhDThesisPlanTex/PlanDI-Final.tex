@@ -1,7 +1,7 @@
 
 \documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
+\usepackage[english, spanish]{babel}
 \usepackage{graphicx}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{lscape}
@@ -11,16 +11,19 @@
 \usepackage{amssymb} % Para usar el símbolo \Box
 \usepackage{hyperref}
 \usepackage{microtype}
+\usepackage{lipsum}
 %\geometry{margin=2.5cm}
 %\usepackage[a4paper, margin=1in]{geometry}
 
 \author{Nombre del Autor}
 \title{Titulo de Propuesta de Investigación}
-%\date{today}
+% \date{today}
+
+% ==== this code to control abstractname in different languages ===
+\addto\captionsenglish{\renewcommand{\abstractname}{Abstract}}
+\addto\captionsspanish{\renewcommand{\abstractname}{Resumen}}
 
 \begin{document}
-%\author{Maria Pérez}
-%\date{today}
 
 \input{DatosPlan}
 
@@ -30,79 +33,32 @@
 %\begin{flushleft}
 \tableofcontents
 \newpage
-%\begin{abstract} en inglés
-%\addcontentsline{toc}{Abstract}
-\section*{Abstract} en inglés
+% abstract en inglés
+\selectlanguage{english}
+\begin{abstract}
+  \addcontentsline{toc}{section}{\abstractname}
+  \input{abstract-eng.tex}
+\end{abstract}
 
-(Entre 200 y 300 palabras (300 si e\\
-s estructurado))
-el \textbf{\textit{abstract}} es una síntesis clara y precisa que resume los puntos más importantes de la tesis, permitiendo al lector conocer rápidamente el propósito, la metodología, los resultados y las conclusiones de la investigación
+\newpage
+% abstract en español
+\selectlanguage{spanish}
+\begin{abstract}
+  \addcontentsline{toc}{section}{\abstractname}
+  \input{abstract-spa.tex}
+\end{abstract}
 
-%\end{abstract} 
-%\end{flushleft}
-\textbf{\textit{KeyWords}:} máximo de 5 a 6)
-machine learning, image recognition, algorithms, datasets.
-\addcontentsline{toc}{section}{Abstract}
-%\begin{abstract} en español \\
-%\addcontentsline{toc}
-\section*{Resumen} en español	\\
-(Entre 200 y 300 palabras (300 si es estructurado))
-el \textbf{\textit{abstract}} es una síntesis clara y precisa que resume los puntos más importantes de la tesis, permitiendo al lector conocer rápidamente el propósito, la metodología, los resultados y las conclusiones de la investigación
-%\end{abstract}
-
-\textbf{Palabras clave:} máximo de 5 a 6)
-\addcontentsline{toc}{section}{Resumen}
-machine learning, image recognition, algorithms, datasets.
-
+\newpage
 \section{Planteamiento del Problema}
-
-%	\vspace{5cm}
-En esta sección, a manera de orientación, en general se deben incluir:
-\begin{itemize}
-	\item \textbf{Contextualización del problema:} situar el problema de investigación dentro de un contexto amplio, proporcionando información relevante sobre el tema en cuestión. Esto implica explicar por qué el problema es relevante, cuál es su origen y su impacto en el campo de estudio y en la sociedad, si aplica. Además, es importante hacer referencia a estudios previos y avances en la temática.
-\end{itemize}
-\begin{itemize}
-	\item \textbf{Descripción precisa del problema}: debe ser claramente identificado y definido. Esto incluye una exposición clara sobre qué se va a investigar, cuáles son las preguntas clave y cómo el problema se articula dentro del marco teórico existente. La descripción debe ser lo suficientemente precisa como para evitar ambigüedades, dejando en claro qué es lo que se quiere solucionar o investigar.
-\end{itemize}
-\begin{itemize}
-	\item \textbf{Justificación del estudio}: en esta parte se explica por qué es importante investigar este problema, y se argumenta por qué es necesario abordar el tema desde la perspectiva propuesta. La justificación puede incluir la relevancia científica, práctica o social del estudio, y también puede aludir a gaps de conocimiento en la literatura actual.
-\end{itemize}
-
-\begin{itemize}
-	\item\textbf{ Marco teórico o conceptual }(bajo ciertas circunstancias): El planteamiento del problema también puede incluir una breve referencia al marco teórico o conceptual, es decir, los conceptos clave, teorías y modelos que se usarán para abordar el problema de investigación. Aquí, se delinean las perspectivas y enfoques que se emplearán para analizar y comprender el problema.
-\end{itemize}
-\begin{itemize}
-	\item \textbf{Delimitación del problema}: Es crucial precisar los límites del estudio: ¿qué aspectos del problema se investigarán y cuáles no? Esto ayuda a evitar una sobrecarga de variables y a enfocar la investigación en aspectos específicos.
-\end{itemize}
-\begin{itemize}
-	\item \textbf{Relevancia del estudio}: explicar cómo los resultados de la investigación contribuirán al avance del conocimiento en el área de estudio, a la solución de un problema práctico o a la mejora de políticas, si es el caso.
-\end{itemize}
-
+\input{01_Problem.tex}
 
 \section{Objetivos e Hipótesis de la Propuesta}
-
-Los objetivos deben derivarse directamente del problema planteado y deben ser específicos y medibles. Pueden dividirse en un objetivo general, que expresa la meta global de la investigación, y objetivos específicos, que son las acciones concretas a realizar para lograr el objetivo general.%\cite{referencia2}	%\cite{simpson2019largeannotatedmedicalimage}
-
-
-\subsection{Objetivo General e Hipótesis:}
-
-\vspace{2cm}
-\subsection{Objetivos Especificos:}
-
-
+\input{02_ObjetivosHipotesis.tex}
 
 \newpage
 
-\section{\textbf{Estado del Arte}}
-%\vspace{2cm}
-En esta sección, se recopilan, analizan y sintetizan las investigaciones previas, las teorías, enfoques y metodologías más relevantes en el campo de estudio, para contextualizar el problema de investigación y justificar la necesidad del estudio. \cite{referencia2} \\
-\textbf{{Revisión de Investigaciones Previas}} \\
-Se revisan investigaciones previas en el área del estudio. \\
-\textbf{{Tendencias Actuales}}\\
-Las tendencias actuales en el área.
-%\\
-
-
+\section{Estado del Arte}
+\input{03_RevisionLiteratura.tex}
 \newpage
 
 % Sección 3: Metodología
