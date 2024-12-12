@@ -2,6 +2,7 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[english, spanish]{babel}
+\usepackage{babel,csquotes,xpatch}
 \usepackage{graphicx}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{lscape}
@@ -12,7 +13,11 @@
 \usepackage{hyperref}
 \usepackage{microtype}
 \usepackage{lipsum}
-%\geometry{margin=2.5cm}
+\usepackage[backend=biber,citestyle=ieee,autolang=other,maxcitenames=99, maxbibnames=99]{biblatex}
+% \usepackage[]{biblatex}
+\addbibresource{bibliography}
+%\addglobalbib{bibliography}
+% \geometry{margin=2.5cm}
 %\usepackage[a4paper, margin=1in]{geometry}
 
 \author{Nombre del Autor}
@@ -59,6 +64,7 @@
 
 \section{Estado del Arte}
 \input{03_RevisionLiteratura.tex}
+\cite{rayed2024deep}
 \newpage
 
 % Sección 3: Metodología
@@ -78,17 +84,17 @@
 \input{06_ResultadosEsperados.tex}
 
 \newpage
+%\section{REFERENCIAS BIBLIOGRÁFICAS}
+\printbibliography[heading=bibintoc]
 
-%\section*{REFERENCIAS BIBLIOGRÁFICAS}
-\section*{}
-\bibliographystyle{IEEEtran}
-%			\textbf{XI. Bibliografía} \\[5cm] \hline
-% El uso de BibTeX se recomienda para mantener el formato adecuado de citas.
+% \section*{}
+% \bibliographystyle{IEEEtran}
 %			\bibliographystyle{IEEEtran}
 %			\bibliography{XI. Bibliografía}
 %\addcontentsline{toc}
-\bibliography{referencias}
-\addcontentsline{toc}{section}{referencias}
+%\bibliography{referencias}
+% \addcontentsline{toc}{section}{referencias}
+
 \newpage
 
 \section*{DECLARACIÓN}
