@@ -1,7 +1,8 @@
 
 \documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
+\usepackage[english, spanish]{babel}
+\usepackage{babel,csquotes,xpatch}
 \usepackage{graphicx}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{lscape}
@@ -11,293 +12,92 @@
 \usepackage{amssymb} % Para usar el símbolo \Box
 \usepackage{hyperref}
 \usepackage{microtype}
-%\geometry{margin=2.5cm}
-%\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{lipsum}
+\usepackage[backend=biber,style=ieee,autolang=other,maxcitenames=99, maxbibnames=99]{biblatex}
+\addbibresource{sample.bib}
 
-\author{Maria Pérez}
-%\date{today}
+
+\author{Nombre del Autor}
+\title{Titulo de Propuesta de Investigación}
+% \date{today}
+
+% ==== this code to control abstractname in different languages ===
+\addto\captionsenglish{\renewcommand{\abstractname}{Abstract}}
+\addto\captionsspanish{\renewcommand{\abstractname}{Resumen}}
 
 \begin{document}
-	%\author{Maria Pérez}
-	%\date{today}
-	
-	\begin{minipage}{0.15\textwidth}
-			\includegraphics[height=2.5cm]{./images/logoEPN.jpg} \hspace{0.5cm}
-	\end{minipage}
-	\hfill
-	\begin{minipage}{0.6\textwidth}
 
-\begin{center}
+\input{DatosPlan}
 
-	\large \textbf{Escuela Politécnica Nacional} \\
-	\large Facultad de Ingeniería en Sistemas.\\ 
-	\large Programa de Doctorado en Informática. \\ 
-\end{center}
-	\end{minipage}
-	\hfill
-	\begin{minipage}{0.15\textwidth}
-		%\includegraphics[width=0.5\linewidth]{logoDIA.jpg}\\ [0.2cm] 
-		\includegraphics[height=3.0cm]{./images/logoDIA.jpg} \\ %[0.2cm] 
-	\end{minipage}
-	
-	\vspace{1cm}
-	
-
-	% Título
-	\begin{center}
-		\huge \textbf{PLAN DE PROYECTO DE INVESTIGACIÓN}
-	\end{center}
-	\thispagestyle{empty}  % Elimina el número de página de la primera página
-	\vspace{0.5cm}
-	%	\begin{flushleft}
-	%\Huge \textbf{I. Información Básica}
-%	\section*{I. Información Básica}
-		\section*{I. Información del Doctorando}
-	%	\end{flushleft}
-	\begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
-		\hline
-		\textbf{Nombre:} &  \\ \hline
-		\textbf{Número de Cedula:} &  \\ \hline
-		\textbf{Email:} &  \\ \hline
-		\textbf{Intensificación:} & \\ \hline
-%		
-	\textbf{Fecha:} & \today\\ \hline
-	\end{longtable}
-	
-		\section*{II. Información del Tutor}
-	%	\end{flushleft}
-	\begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
-	\hline
-%	\textbf{Presentado por:} &  \\ \hline
-%	\textbf{Número de Cedula:} &  \\ \hline
-%	\textbf{Email:} &  \\ \hline
-%	\textbf{Intensificación:} & \\ \hline
-			\textbf{Nombre del Tutor:} & Maria Pérez\\ \hline
-			\textbf{Número de Cedula:} & \\ \hline
-			\textbf{Email:} & \\ \hline
-		%	\textbf{Nombre del Director:} & \\ \hline
-	       % \textbf{Fecha:} & \today\\ \hline
-	\end{longtable}
-	
-		\section*{III. Información del Director}
-	%	\end{flushleft}
-	\begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
-	\hline
-	%	\textbf{Presentado por:} &  \\ \hline
-	%	\textbf{Número de Cedula:} &  \\ \hline
-	%	\textbf{Email:} &  \\ \hline
-	%	\textbf{Intensificación:} & \\ \hline
-	\textbf{Nombre del Director:} & \\ \hline
-	\textbf{Número de Cedula:} & \\ \hline
-	\textbf{Email:} & \\ \hline
-	%	\textbf{Nombre del Director:} & \\ \hline
-%	\textbf{Fecha:} & \today\\ \hline
-	\end{longtable}
-	%	\vspace{0.5cm}
-		\section*{IV. Información del Codirector}
-	%	\end{flushleft}
-	\begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
-	\hline
-	\textbf{Nombre del Codirector:} & \\ \hline
-	\textbf{Número de Cedula:} & \\ \hline
-	\textbf{Email:} & \\ \hline
-	%	\textbf{Nombre del Director:} & \\ \hline
-%	\textbf{Fecha:} & \today\\ \hline
-	\end{longtable}
-
-	\section*{V. Información del Plan de Investigación} 	
-	
-	 \begin{itemize}
-		\item El Plan de Investigación puede ser presentado en español o inglés. 
-		\item Los formatos físicos deberán ser entregados en la Secretaría del Doctorado de la Facultad y el digital al correo \texttt{doctorado.informatica@epn.edu.ec}
-	\end{itemize} 
-	%\\ 
-	
-	\begin{longtable}{|p{0.3\textwidth}|p{0.65\textwidth}|}
-		\hline
-		\textbf{Titulo:} &  \\ \hline
-		\textbf{Linea de Investigación:} & Inteligencia Artificial\\ \hline
-		
-	\end{longtable}
-	
-% No numerar la primera página
+% No numerar las primeras páginas
 \thispagestyle{empty}  % Elimina el número de página de la primera página
-	\newpage
-%\begin{flushleft}
-	\tableofcontents
 \newpage
-%\begin{abstract} en inglés
-%\addcontentsline{toc}{Abstract}
-\section*{Abstract} en inglés
-	
-	(Entre 200 y 300 palabras (300 si e\\
-	s estructurado))
-	el \textbf{\textit{abstract}} es una síntesis clara y precisa que resume los puntos más importantes de la tesis, permitiendo al lector conocer rápidamente el propósito, la metodología, los resultados y las conclusiones de la investigación
-	
-%\end{abstract} 
-%\end{flushleft}
-\textbf{\textit{KeyWords}:} máximo de 5 a 6)
- machine learning, image recognition, algorithms, datasets.
-\addcontentsline{toc}{section}{Abstract}
-%\begin{abstract} en español \\
-%\addcontentsline{toc}
-\section*{Resumen} en español	\\
-	(Entre 200 y 300 palabras (300 si es estructurado))
-	el \textbf{\textit{abstract}} es una síntesis clara y precisa que resume los puntos más importantes de la tesis, permitiendo al lector conocer rápidamente el propósito, la metodología, los resultados y las conclusiones de la investigación
-%\end{abstract}
+\pagestyle{empty} % tabla de contenido sin numeracion
+\tableofcontents
+\newpage
+\pagenumbering{roman} % abstract con numeracion en romanos
+% abstract en inglés
+\selectlanguage{english}
+\begin{abstract}
+  \addcontentsline{toc}{section}{\abstractname}
+  \input{abstract-eng.tex}
+\end{abstract}
 
-\textbf{Palabras clave:} máximo de 5 a 6)
-\addcontentsline{toc}{section}{Resumen}
-machine learning, image recognition, algorithms, datasets.
+\newpage
+% abstract en español
+\selectlanguage{spanish}
+\begin{abstract}
+  \addcontentsline{toc}{section}{\abstractname}
+  \input{abstract-spa.tex}
+\end{abstract}
 
-	\section{Planteamiento del Problema}
-	
-	%	\vspace{5cm}
-	En esta sección, a manera de orientación, en general se deben incluir:
-		\begin{itemize}
-			\item \textbf{Contextualización del problema:} situar el problema de investigación dentro de un contexto amplio, proporcionando información relevante sobre el tema en cuestión. Esto implica explicar por qué el problema es relevante, cuál es su origen y su impacto en el campo de estudio y en la sociedad, si aplica. Además, es importante hacer referencia a estudios previos y avances en la temática.
-		\end{itemize}
-		\begin{itemize}
-			\item \textbf{Descripción precisa del problema}: debe ser claramente identificado y definido. Esto incluye una exposición clara sobre qué se va a investigar, cuáles son las preguntas clave y cómo el problema se articula dentro del marco teórico existente. La descripción debe ser lo suficientemente precisa como para evitar ambigüedades, dejando en claro qué es lo que se quiere solucionar o investigar.
-		\end{itemize}
-		\begin{itemize}
-			\item \textbf{Justificación del estudio}: en esta parte se explica por qué es importante investigar este problema, y se argumenta por qué es necesario abordar el tema desde la perspectiva propuesta. La justificación puede incluir la relevancia científica, práctica o social del estudio, y también puede aludir a gaps de conocimiento en la literatura actual.
-		\end{itemize}
-		
-		\begin{itemize}
-			\item\textbf{ Marco teórico o conceptual }(bajo ciertas circunstancias): El planteamiento del problema también puede incluir una breve referencia al marco teórico o conceptual, es decir, los conceptos clave, teorías y modelos que se usarán para abordar el problema de investigación. Aquí, se delinean las perspectivas y enfoques que se emplearán para analizar y comprender el problema.
-		\end{itemize}
-		\begin{itemize}
-			\item \textbf{Delimitación del problema}: Es crucial precisar los límites del estudio: ¿qué aspectos del problema se investigarán y cuáles no? Esto ayuda a evitar una sobrecarga de variables y a enfocar la investigación en aspectos específicos.
-		\end{itemize}
-		\begin{itemize}
-			\item \textbf{Relevancia del estudio}: explicar cómo los resultados de la investigación contribuirán al avance del conocimiento en el área de estudio, a la solución de un problema práctico o a la mejora de políticas, si es el caso.
-		\end{itemize}
-		
-	
-	\section{Objetivos e Hipótesis de la Propuesta}
-	
-	Los objetivos deben derivarse directamente del problema planteado y deben ser específicos y medibles. Pueden dividirse en un objetivo general, que expresa la meta global de la investigación, y objetivos específicos, que son las acciones concretas a realizar para lograr el objetivo general.%\cite{referencia2}	%\cite{simpson2019largeannotatedmedicalimage}
-	
-	
-\subsection{Objetivo General e Hipótesis:} 
-	
-\vspace{2cm}
-\subsection{Objetivos Especificos:}
+\newpage
+\pagenumbering{arabic}
+\section{Planteamiento del Problema}
+\input{01_Problem.tex}
+
+\section{Objetivos e Hipótesis de la Propuesta}
+\input{02_ObjetivosHipotesis.tex}
+
+\newpage
+
+\section{Estado del Arte}
+\input{03_RevisionLiteratura.tex}
+
+\newpage
+
+% Sección 3: Metodología
+\section{Metodología de la Propuesta}
+\input{04_Metodologia.tex}
+
+\newpage
 
 
-	
-	\newpage
-	
-\section{\textbf{Estado del Arte}}
-	%\vspace{2cm}
-	En esta sección, se recopilan, analizan y sintetizan las investigaciones previas, las teorías, enfoques y metodologías más relevantes en el campo de estudio, para contextualizar el problema de investigación y justificar la necesidad del estudio. \cite{referencia2} \\
-	\textbf{{Revisión de Investigaciones Previas}} \\
-	Se revisan investigaciones previas en el área del estudio. \\
-	\textbf{{Tendencias Actuales}}\\
-	Las tendencias actuales en el área.
-	 %\\
-	 		
-	
-	\newpage
-	
-	% Sección 3: Metodología
-	\section{Metodología de la Propuesta}
-	En esta sección se describe la metodología a seguir durante el desarrollo de la investigación. Se detallan los métodos de recolección de datos, las técnicas de análisis y los algoritmos que se utilizarán para realizar las experimentaciones.
-	\cite{simpson2019largeannotatedmedicalimage}
-	
-		
-	\newpage
-	
-	
-	\section{Cronograma}
-	En el cronograma de trabajo se detalla las etapas del proyecto, los plazos estimados y las tareas específicas que se realizarán durante cada fase, para cumplir con los objetivos planteados.
-	
-	\textbf{\emph{Sin excederse del tiempo reglamentario para graduarse}}
-	
+\section{Cronograma}
+\input{05_Cronograma.tex}
 
-	\begin{itemize}
-		\item \textbf{Años 1-3:} Revisión de literatura y definición del problema de investigación. 
-		\item \textbf{año 2-4:} Desarrollo de los primeros prototipos de modelo. Quizá publicaciones en conferencias/congresos y una publicación en revista...
-		\item \textbf{Años 3-4:} Experimentación y ajuste de parámetros. Publicacion en revista el resultado de la tesis.
-		Análisis de resultados y redacción de los capítulos de la tesis...
-	\end{itemize}
-	
-	\newpage
-	
-	% Sección 5: Resultados Esperados
-	\section{Resultados Esperados}
-	Se espera que los resultados obtenidos a partir de la experimentación proporcionen una mejora significativa en la precisión y eficiencia de los algoritmos de segmentación de imagenes en comparación con los enfoques actuales.\cite{referencia2}
-	
-	\newpage
-	
-	%\section*{REFERENCIAS BIBLIOGRÁFICAS}
-\section*{}
-\bibliographystyle{IEEEtran}
-%			\textbf{XI. Bibliografía} \\[5cm] \hline
-% El uso de BibTeX se recomienda para mantener el formato adecuado de citas.
+\newpage
+
+% Sección 5: Resultados Esperados
+\section{Resultados Esperados}
+\input{06_ResultadosEsperados.tex}
+
+\newpage
+%\section{REFERENCIAS BIBLIOGRÁFICAS}
+\printbibliography[heading=bibintoc]
+
+% \section*{}
+% \bibliographystyle{IEEEtran}
 %			\bibliographystyle{IEEEtran}
 %			\bibliography{XI. Bibliografía}
 %\addcontentsline{toc}
-\bibliography{referencias}
-\addcontentsline{toc}{section}{referencias}
+%\bibliography{referencias}
+% \addcontentsline{toc}{section}{referencias}
+
 \newpage
-	
-	\section*{DECLARACIÓN}
-	
-	Yo, \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_, declaro que la propuesta aquí descrita es de mi autoría, que no ha sido presentada por otras personas en otras instituciones y que he revisado los contenidos de las referencias bibliográficas que se incluyen en este documento.
-	
-	\vspace{1cm}
-	
-%	\begin{flushleft}
-	\begin{flushleft}
-	%	\hspace{3cm} 
-			Quito,\today\\
-		%	Quito,\date{16 de nov. de 2024}\\
-		\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\hspace{0.1cm} \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  \hspace{0.3cm}\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\hspace{0.1cm}\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\\
-		(Lugar y fecha) \hspace{0.2cm} Nombre del estudiante de doctorado \hspace{0.2cm} C.C.\hspace{0.05cm} 00000000000 \hspace{0.1cm} Firma \\
-	\end{flushleft}
-	
-	\vspace{1cm}
-	
-	\begin{flushleft}
-		%	\hspace{3cm} 
-		Quito,\today\\
-	%	Quito,\date{16 de nov. de 2024}\\
-	\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\hspace{0.1cm} \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  \hspace{0.3cm}\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\hspace{0.1cm}\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\\
-		(Lugar y fecha) \hspace{0.0cm} Nombre tutor/director plan de investigación \hspace{0.1cm} C.C.\hspace{0.05cm}00000000000 \hspace{0.1cm} Firma \\
-	\end{flushleft}
-	
-		\vspace{1cm}
-	
-	\begin{flushleft}
-		%	\hspace{3cm} 
-		Quito,\today\\
-		%	Quito,\date{16 de nov. de 2024}\\
-		\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\hspace{0.1cm} \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  \hspace{0.3cm}\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\hspace{0.1cm}\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\\
-		(Lugar y fecha) \hspace{0.0cm} Nombre Codirector plan de investigación \hspace{0.1cm} C.C.\hspace{0.05cm}00000000000 \hspace{0.1cm} Firma \\
-	\end{flushleft}
-	
-	\vspace{1cm}
-	
-   %	\begin{center}
-	\begin{flushleft}
-%	\hspace{3cm}
- 	%Quito,\today\\
- 	Quito,\today\\
- %	Quito,\date{16 de nov. de 2024}\\
- 	\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\hspace{0.1cm} \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  \hspace{0.3cm}\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\hspace{0.1cm}\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\\
-		(Lugar y fecha) \hspace{0.0cm} Nombre del director del programa doctoral \hspace{1.3cm} C.C.\hspace{1cm} \hspace{0.1cm} Firma \\
-	\end{flushleft}
-	
-%	%\section*{REFERENCIAS BIBLIOGRÁFICAS}
-%	\section*{}
-%		\bibliographystyle{IEEEtran}
-%	%			\textbf{XI. Bibliografía} \\[5cm] \hline
-%	% El uso de BibTeX se recomienda para mantener el formato adecuado de citas.
-%	%			\bibliographystyle{IEEEtran}
-%	%			\bibliography{XI. Bibliografía}
-%	\bibliography{Referencias}
-%	\vspace{5cm}
-	
+
+\section*{DECLARACIÓN}
+\input{Declaracion.tex}
+
+
 \end{document}
