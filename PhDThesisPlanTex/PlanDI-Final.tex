@@ -13,12 +13,9 @@
 \usepackage{hyperref}
 \usepackage{microtype}
 \usepackage{lipsum}
-\usepackage[backend=biber,citestyle=ieee,autolang=other,maxcitenames=99, maxbibnames=99]{biblatex}
-% \usepackage[]{biblatex}
-\addbibresource{bibliography}
-%\addglobalbib{bibliography}
-% \geometry{margin=2.5cm}
-%\usepackage[a4paper, margin=1in]{geometry}
+\usepackage[backend=biber,style=ieee,autolang=other,maxcitenames=99, maxbibnames=99]{biblatex}
+\addbibresource{sample.bib}
+
 
 \author{Nombre del Autor}
 \title{Titulo de Propuesta de Investigación}
@@ -32,12 +29,13 @@
 
 \input{DatosPlan}
 
-% No numerar la primera página
+% No numerar las primeras páginas
 \thispagestyle{empty}  % Elimina el número de página de la primera página
 \newpage
-%\begin{flushleft}
+\pagestyle{empty} % tabla de contenido sin numeracion
 \tableofcontents
 \newpage
+\pagenumbering{roman} % abstract con numeracion en romanos
 % abstract en inglés
 \selectlanguage{english}
 \begin{abstract}
@@ -54,6 +52,7 @@
 \end{abstract}
 
 \newpage
+\pagenumbering{arabic}
 \section{Planteamiento del Problema}
 \input{01_Problem.tex}
 
@@ -64,7 +63,7 @@
 
 \section{Estado del Arte}
 \input{03_RevisionLiteratura.tex}
-\cite{rayed2024deep}
+
 \newpage
 
 % Sección 3: Metodología
@@ -100,14 +99,5 @@
 \section*{DECLARACIÓN}
 \input{Declaracion.tex}
 
-%	%\section*{REFERENCIAS BIBLIOGRÁFICAS}
-%	\section*{}
-%		\bibliographystyle{IEEEtran}
-%	%			\textbf{XI. Bibliografía} \\[5cm] \hline
-%	% El uso de BibTeX se recomienda para mantener el formato adecuado de citas.
-%	%			\bibliographystyle{IEEEtran}
-%	%			\bibliography{XI. Bibliografía}
-%	\bibliography{Referencias}
-%	\vspace{5cm}
 
 \end{document}
